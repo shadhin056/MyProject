@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">MyProject</string>
+    <string-array name="gender">
+        <item>male</item>
+        <item>female</item>
+    </string-array>
+
+    <string-array name="status">
+        <item>Customer</item>
+        <item>Agent</item>
+        <item>DSO</item>
+    </string-array>
 </resources>
