@@ -38,6 +38,9 @@ class LoginActivity : AppCompatActivity() {
             it?.let {
                 if(it.status=="1"){
                     Toast.makeText(this, "Login Successful", Toast.LENGTH_LONG).show()
+                    val intent = Intent(this, DashBoardActivity::class.java)
+                    intent.putExtra("userType", it.userType)
+                    startActivity(intent)
                 }else{
                     Toast.makeText(this, "Login Failed", Toast.LENGTH_LONG).show()
                 }
