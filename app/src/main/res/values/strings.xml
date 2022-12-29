@@ -1,13 +1,13 @@
 <resources>
     <string name="app_name">EasyPay</string>
     <string-array name="gender">
-        <item>male</item>
-        <item>female</item>
+        <item>Male</item>
+        <item>Female</item>
     </string-array>
 
     <string-array name="status">
-        <item>Distributor</item>
-        <item>Customer</item>
         <item>Agent</item>
+        <item>Customer</item>
+        <item>Distributor</item>
     </string-array>
 </resources>

@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent" >
+
     <LinearLayout
         android:layout_margin="20dp"
         android:layout_width="match_parent"
@@ -30,7 +31,6 @@
             android:id="@+id/edtCustomerName"
             android:singleLine="true"
             android:hint="Name"
-            android:text="shadhin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -42,7 +42,6 @@
             android:id="@+id/edtPhone"
             android:singleLine="true"
             android:hint="Phone"
-            android:text="01672708329"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -51,7 +50,6 @@
         <EditText
             android:id="@+id/edtEmail"
             android:hint="Email"
-            android:text="s@gmail.com"
             android:inputType="textEmailAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -59,6 +57,9 @@
         </EditText>
         <TextView
             android:text="User Type"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:textStyle="bold"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -69,6 +70,9 @@
             android:layout_height="wrap_content"/>
         <TextView
             android:text="Gender"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:textStyle="bold"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -82,7 +86,6 @@
             android:id="@+id/edtPin"
             android:singleLine="true"
             android:hint="PIN"
-            android:text="1234"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -103,7 +106,6 @@
         android:id="@+id/edtAddress"
         android:singleLine="true"
         android:hint="Address"
-            android:text="merul"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -114,7 +116,6 @@
         android:id="@+id/edtDistributeNo"
         android:singleLine="true"
         android:hint="Distribute No"
-        android:text="1234"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 

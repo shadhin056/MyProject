@@ -30,7 +30,7 @@ class DashBoardActivity : AppCompatActivity() {
             intent.putExtra("fromRoleCode", "3")
             intent.putExtra("toRoleCode", "4")
             intent.putExtra("txCode", "5234")
-            intent.putExtra("btnCode", "cash in")
+            intent.putExtra("btnCode", "Cash In")
             intent.putExtra("balance", balance)
             intent.putExtra("name", name)
             startActivity(intent)
@@ -41,7 +41,7 @@ class DashBoardActivity : AppCompatActivity() {
             intent.putExtra("fromRoleCode", "4")
             intent.putExtra("toRoleCode", "3")
             intent.putExtra("txCode", "5343")
-            intent.putExtra("btnCode", "cash out")
+            intent.putExtra("btnCode", "Cash Out")
             intent.putExtra("balance", balance)
             intent.putExtra("name", name)
             startActivity(intent)
@@ -52,7 +52,7 @@ class DashBoardActivity : AppCompatActivity() {
             intent.putExtra("fromRoleCode", "4")
             intent.putExtra("toRoleCode", "4")
             intent.putExtra("txCode", "4044")
-            intent.putExtra("btnCode", "ft")
+            intent.putExtra("btnCode", "Fund Transfer")
             intent.putExtra("balance", balance)
             intent.putExtra("name", name)
             startActivity(intent)
@@ -63,7 +63,7 @@ class DashBoardActivity : AppCompatActivity() {
             intent.putExtra("fromRoleCode", "3")
             intent.putExtra("toRoleCode", "2")
             intent.putExtra("txCode", "4032")
-            intent.putExtra("btnCode", "agent withdraw")
+            intent.putExtra("btnCode", "Agent Withdraw")
             intent.putExtra("balance", balance)
             intent.putExtra("name", name)
             startActivity(intent)
@@ -95,8 +95,8 @@ class DashBoardActivity : AppCompatActivity() {
          balance = intent.getStringExtra("balance").toString()
          name = intent.getStringExtra("name").toString()
 
-        txtBalance.text = balance
-        txtName.text = name
+        txtBalance.text = "Balance : "+balance
+        txtName.text = "Name : "+name
 
         if(userType=="AG"){
             btnCashIn.visibility= View.VISIBLE

@@ -14,6 +14,9 @@
             android:id="@+id/txtTitle"
             android:textAlignment="center"
             android:text=" "
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="#3d3b3b"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </LinearLayout>
@@ -27,7 +30,7 @@
             android:inputType="text"
             android:id="@+id/edtAc"
             android:singleLine="true"
-            android:hint="AC"
+            android:hint="Account No"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 

@@ -13,6 +13,9 @@
         <TextView
             android:textAlignment="center"
             android:text="Login"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="#3d3b3b"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </LinearLayout>
@@ -29,8 +32,7 @@
             android:inputType="text"
             android:id="@+id/edtPhone"
             android:singleLine="true"
-            android:hint="Phone"
-            android:text="01711111111"
+            android:hint="Account No"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -40,8 +42,7 @@
             android:inputType="textPassword"
             android:id="@+id/edtPin"
             android:singleLine="true"
-            android:hint="PIN"
-            android:text="1234"
+            android:hint="Pin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
