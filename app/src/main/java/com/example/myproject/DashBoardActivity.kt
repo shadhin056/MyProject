@@ -10,6 +10,8 @@ import kotlinx.android.synthetic.main.activity_dash_board.*
 class DashBoardActivity : AppCompatActivity() {
     var userType = ""
     var user = ""
+    var name = ""
+    var balance = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dash_board)
@@ -30,6 +32,8 @@ class DashBoardActivity : AppCompatActivity() {
             intent.putExtra("toRoleCode", "4")
             intent.putExtra("txCode", "5234")
             intent.putExtra("btnCode", "cash in")
+            intent.putExtra("balance", balance)
+            intent.putExtra("name", name)
             startActivity(intent)
         }
         btnCashOut.setOnClickListener {
@@ -39,6 +43,8 @@ class DashBoardActivity : AppCompatActivity() {
             intent.putExtra("toRoleCode", "3")
             intent.putExtra("txCode", "5343")
             intent.putExtra("btnCode", "cash out")
+            intent.putExtra("balance", balance)
+            intent.putExtra("name", name)
             startActivity(intent)
         }
         btnFT.setOnClickListener {
@@ -48,6 +54,8 @@ class DashBoardActivity : AppCompatActivity() {
             intent.putExtra("toRoleCode", "4")
             intent.putExtra("txCode", "4044")
             intent.putExtra("btnCode", "ft")
+            intent.putExtra("balance", balance)
+            intent.putExtra("name", name)
             startActivity(intent)
         }
         btnAgWithDraw.setOnClickListener {
@@ -57,6 +65,8 @@ class DashBoardActivity : AppCompatActivity() {
             intent.putExtra("toRoleCode", "2")
             intent.putExtra("txCode", "4032")
             intent.putExtra("btnCode", "agent withdraw")
+            intent.putExtra("balance", balance)
+            intent.putExtra("name", name)
             startActivity(intent)
         }
         btnAgRecharge.setOnClickListener {
@@ -66,6 +76,8 @@ class DashBoardActivity : AppCompatActivity() {
             intent.putExtra("toRoleCode", "3")
             intent.putExtra("txCode", "4023")
             intent.putExtra("btnCode", "Agent Recharge")
+            intent.putExtra("balance", balance)
+            intent.putExtra("name", name)
             startActivity(intent)
         }
 
@@ -75,6 +87,11 @@ class DashBoardActivity : AppCompatActivity() {
     private fun initView() {
          userType = intent.getStringExtra("userType").toString()
          user = intent.getStringExtra("user").toString()
+         balance = intent.getStringExtra("balance").toString()
+         name = intent.getStringExtra("name").toString()
+
+        txtBalance.text = balance
+        txtName.text = name
 
         if(userType=="AG"){
             btnCashIn.visibility= View.VISIBLE

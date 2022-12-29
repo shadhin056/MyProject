@@ -15,6 +15,43 @@ public class CustomerLoginResponse {
     @Expose
     private String userType;
 
+    @SerializedName("fromAccountNoBalance")
+    @Expose
+    private String fromAccountNoBalance;
+
+    public String getFromAccountNoBalance() {
+        return fromAccountNoBalance;
+    }
+
+    public void setFromAccountNoBalance(String fromAccountNoBalance) {
+        this.fromAccountNoBalance = fromAccountNoBalance;
+    }
+
+
+    @SerializedName("name")
+    @Expose
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @SerializedName("balance")
+    @Expose
+    private String balance;
+
+    public String getBalance() {
+        return balance;
+    }
+
+    public void setBalance(String balance) {
+        this.balance = balance;
+    }
+
     public String getStatus() {
         return status;
     }

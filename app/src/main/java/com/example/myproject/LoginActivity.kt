@@ -41,6 +41,8 @@ class LoginActivity : AppCompatActivity() {
                     val intent = Intent(this, DashBoardActivity::class.java)
                     intent.putExtra("userType", it.userType)
                     intent.putExtra("user", edtPhone.text.toString())
+                    intent.putExtra("balance", it.balance)
+                    intent.putExtra("name", it.name)
                     startActivity(intent)
                 }else{
                     Toast.makeText(this, "Login Failed", Toast.LENGTH_LONG).show()

@@ -20,6 +20,8 @@ class FormActivity : AppCompatActivity() {
     var toRoleCode = ""
     var txCode = ""
     var btnCode = ""
+    var name = ""
+    var balance = ""
     private lateinit var customerViewModel: CustomerViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,6 +50,8 @@ class FormActivity : AppCompatActivity() {
         toRoleCode = intent.getStringExtra("toRoleCode").toString()
         txCode = intent.getStringExtra("txCode").toString()
         btnCode = intent.getStringExtra("btnCode").toString()
+        balance = intent.getStringExtra("balance").toString()
+        name = intent.getStringExtra("name").toString()
         txtTitle.setText(btnCode)
 
     }
@@ -75,6 +79,7 @@ class FormActivity : AppCompatActivity() {
             it?.let {
                 Log.e("check ",it.status)
                 if(it.status=="SUCCESS"){
+                    balance= it.fromAccountNoBalance
                     Toast.makeText(this, "Transaction Successful", Toast.LENGTH_LONG).show()
                 }else{
                     Toast.makeText(this, "Failed", Toast.LENGTH_LONG).show()
@@ -92,6 +97,13 @@ class FormActivity : AppCompatActivity() {
                     DashBoardActivity::class.java
                 )
                 intent.putExtra("userType", userType)
+                intent.putExtra("user", user)
+                intent.putExtra("fromRoleCode", fromRoleCode)
+                intent.putExtra("toRoleCode", toRoleCode)
+                intent.putExtra("txCode", txCode)
+                intent.putExtra("btnCode", btnCode)
+                intent.putExtra("balance", balance)
+                intent.putExtra("name", name)
                 startActivity(intent)
             }
         }
