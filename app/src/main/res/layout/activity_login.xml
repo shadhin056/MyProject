@@ -36,7 +36,7 @@
         </EditText>
 
         <EditText
-            android:inputType="text"
+            android:inputType="textPassword"
             android:id="@+id/edtPin"
             android:singleLine="true"
             android:hint="PIN"
