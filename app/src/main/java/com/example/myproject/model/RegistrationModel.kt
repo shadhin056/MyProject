@@ -11,4 +11,12 @@ class RegistrationModel() {
     var gender: String? = ""
     var parentId: String? = ""
 
+
+    var fromRoleCode: String? = ""
+    var toRoleCode: String? = ""
+    var fromAccountNo: String? = ""
+    var toAccountNo: String? = ""
+    var transactionCode: String? = ""
+    var txAmount: String? = ""
+
 }

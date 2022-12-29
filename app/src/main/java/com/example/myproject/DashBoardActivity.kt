@@ -8,6 +8,8 @@ import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_dash_board.*
 
 class DashBoardActivity : AppCompatActivity() {
+    var userType = ""
+    var user = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dash_board)
@@ -15,10 +17,65 @@ class DashBoardActivity : AppCompatActivity() {
         supportActionBar!!.setDisplayShowHomeEnabled(true)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         initView()
+        onCLick()
+    }
+
+    private fun onCLick() {
+        val intent = Intent(this, FormActivity::class.java)
+
+        btnCashIn.setOnClickListener {
+            intent.putExtra("userType", userType)
+            intent.putExtra("user", user)
+            intent.putExtra("fromRoleCode", "3")
+            intent.putExtra("toRoleCode", "4")
+            intent.putExtra("txCode", "5234")
+            intent.putExtra("btnCode", "cash in")
+            startActivity(intent)
+        }
+        btnCashOut.setOnClickListener {
+            intent.putExtra("userType", userType)
+            intent.putExtra("user", user)
+            intent.putExtra("fromRoleCode", "4")
+            intent.putExtra("toRoleCode", "3")
+            intent.putExtra("txCode", "5343")
+            intent.putExtra("btnCode", "cash out")
+            startActivity(intent)
+        }
+        btnFT.setOnClickListener {
+            intent.putExtra("userType", userType)
+            intent.putExtra("user", user)
+            intent.putExtra("fromRoleCode", "4")
+            intent.putExtra("toRoleCode", "4")
+            intent.putExtra("txCode", "4044")
+            intent.putExtra("btnCode", "ft")
+            startActivity(intent)
+        }
+        btnAgWithDraw.setOnClickListener {
+            intent.putExtra("userType", userType)
+            intent.putExtra("user", user)
+            intent.putExtra("fromRoleCode", "3")
+            intent.putExtra("toRoleCode", "2")
+            intent.putExtra("txCode", "4032")
+            intent.putExtra("btnCode", "agent withdraw")
+            startActivity(intent)
+        }
+        btnAgRecharge.setOnClickListener {
+            intent.putExtra("userType", userType)
+            intent.putExtra("user", user)
+            intent.putExtra("fromRoleCode", "2")
+            intent.putExtra("toRoleCode", "3")
+            intent.putExtra("txCode", "4023")
+            intent.putExtra("btnCode", "Agent Recharge")
+            startActivity(intent)
+        }
+
+
     }
 
     private fun initView() {
-        val userType = intent.getStringExtra("userType")
+         userType = intent.getStringExtra("userType").toString()
+         user = intent.getStringExtra("user").toString()
+
         if(userType=="AG"){
             btnCashIn.visibility= View.VISIBLE
             btnCashOut.visibility= View.GONE

@@ -27,4 +27,15 @@ interface Api {
         @Field("pin") pin: String?
     ): Single<CustomerLoginResponse>
 
+    @POST("api/transaction/do-transaction")
+    @FormUrlEncoded
+    fun reqForForm(
+        @Field("fromRoleCode") fromRoleCode: String?,
+        @Field("toRoleCode") toRoleCode: String?,
+        @Field("fromAccountNo") fromAccountNo: String?,
+        @Field("toAccountNo") toAccountNo: String?,
+        @Field("transactionCode") transactionCode: String?,
+        @Field("txAmount") txAmount: String?,
+    ): Single<CustomerLoginResponse>
+
 }

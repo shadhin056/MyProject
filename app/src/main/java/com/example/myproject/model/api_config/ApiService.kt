@@ -54,5 +54,16 @@ class ApiService {
             model.pin
         )
     }
+    fun reqForForm(model: RegistrationModel): Single<CustomerLoginResponse> {
+        return api.reqForForm(
+            model.fromRoleCode,
+            model.toRoleCode,
+            model.fromAccountNo,
+            model.toAccountNo,
+            model.transactionCode,
+            model.txAmount
+
+        )
+    }
 
 }

@@ -72,10 +72,12 @@ class RegistrationActivity : AppCompatActivity() {
 
             it?.let {
                 Toast.makeText(this, "Registration Successful from Mobile No : " + it.phoneNo, Toast.LENGTH_LONG).show()
-                if (Constant.logCheck) {
-                   // Log.d(RegistrationActivity::class.java.getSimpleName(), it.id.toString())
-                }
             }
+            val intent: Intent = Intent(
+                this,
+                LoginActivity::class.java
+            )
+            startActivity(intent)
         }
     }
 

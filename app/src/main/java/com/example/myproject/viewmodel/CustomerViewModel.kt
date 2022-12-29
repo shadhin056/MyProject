@@ -20,8 +20,8 @@ class CustomerViewModel : ViewModel(){
 
     var customerRegistrationResponse = MutableLiveData<CustomerRegResponse>()
     var customerLoginResponse = MutableLiveData<CustomerLoginResponse>()
+    var customerFormResponse = MutableLiveData<CustomerLoginResponse>()
     var error_response = MutableLiveData<Boolean>();
-    var userDeleteResponse = MutableLiveData<Boolean>();
 
     fun reqForUserRegistration(model: RegistrationModel) {
 
@@ -54,6 +54,28 @@ class CustomerViewModel : ViewModel(){
                 override fun onSuccess(model: CustomerLoginResponse) {
                     model?.let {
                         customerLoginResponse.value = model
+                    }
+                }
+                override fun onError(e: Throwable) {
+                    if(Constant.logCheck){
+                        Log.e("error_reqForUserReg", e.message.toString())
+                    }
+                    e.printStackTrace()
+                    error_response.value = true
+                }
+            })
+        )
+    }
+
+    fun reqForForm(model: RegistrationModel) {
+
+        disposable.add(apiService.reqForForm(model)
+            .subscribeOn(Schedulers.newThread())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeWith(object : DisposableSingleObserver<CustomerLoginResponse>() {
+                override fun onSuccess(model: CustomerLoginResponse) {
+                    model?.let {
+                        customerFormResponse.value = model
                     }
                 }
                 override fun onError(e: Throwable) {
