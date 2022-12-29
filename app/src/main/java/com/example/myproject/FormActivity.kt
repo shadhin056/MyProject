@@ -80,6 +80,20 @@ class FormActivity : AppCompatActivity() {
                 Log.e("check ",it.status)
                 if(it.status=="SUCCESS"){
                     balance= it.fromAccountNoBalance
+                    val intent: Intent = Intent(
+                        this,
+                        DashBoardActivity::class.java
+                    )
+                    intent.putExtra("userType", userType)
+                    intent.putExtra("user", user)
+                    intent.putExtra("fromRoleCode", fromRoleCode)
+                    intent.putExtra("toRoleCode", toRoleCode)
+                    intent.putExtra("txCode", txCode)
+                    intent.putExtra("btnCode", btnCode)
+                    intent.putExtra("balance", balance)
+                    intent.putExtra("name", name)
+                    startActivity(intent)
+
                     Toast.makeText(this, "Transaction Successful", Toast.LENGTH_LONG).show()
                 }else{
                     Toast.makeText(this, "Failed", Toast.LENGTH_LONG).show()

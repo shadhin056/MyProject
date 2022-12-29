@@ -15,9 +15,8 @@ class DashBoardActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dash_board)
-
-        supportActionBar!!.setDisplayShowHomeEnabled(true)
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        //supportActionBar!!.setDisplayShowHomeEnabled(true)
+        //supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         initView()
         onCLick()
     }
@@ -80,7 +79,13 @@ class DashBoardActivity : AppCompatActivity() {
             intent.putExtra("name", name)
             startActivity(intent)
         }
-
+        btnLogOut.setOnClickListener {
+            val intent: Intent = Intent(
+                this,
+                LoginActivity::class.java
+            )
+            startActivity(intent)
+        }
 
     }
 

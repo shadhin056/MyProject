@@ -13,6 +13,9 @@
         <TextView
             android:textAlignment="center"
             android:text="Registration"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="#3d3b3b"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </LinearLayout>
