@@ -1,25 +1,17 @@
 package com.example.myproject.model;
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class CustomerRegResponse {
-    @SerializedName("id")
-    private Integer id;
     @SerializedName("name")
+    @Expose
     private String name;
-    @SerializedName("gender")
-    private String gender;
-    @SerializedName("email")
-    private String email;
-    @SerializedName("status")
-    private String status;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
+    @SerializedName("phoneNo")
+    @Expose
+    private String phoneNo;
+    @SerializedName("userType")
+    @Expose
+    private String userType;
 
     public String getName() {
         return name;
@@ -29,29 +21,20 @@ public class CustomerRegResponse {
         this.name = name;
     }
 
-    public String getGender() {
-        return gender;
+    public String getPhoneNo() {
+        return phoneNo;
     }
 
-    public void setGender(String gender) {
-        this.gender = gender;
+    public void setPhoneNo(String phoneNo) {
+        this.phoneNo = phoneNo;
     }
 
-    public String getEmail() {
-        return email;
+    public String getUserType() {
+        return userType;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
+    public void setUserType(String userType) {
+        this.userType = userType;
     }
 
 }
-

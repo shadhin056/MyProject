@@ -6,8 +6,8 @@
     </string-array>
 
     <string-array name="status">
+        <item>Distributor</item>
         <item>Customer</item>
         <item>Agent</item>
-        <item>DSO</item>
     </string-array>
 </resources>

@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.examshadhin.view.model.api_config.ApiService
 import com.example.examshadhin.view.util.Constant
+import com.example.myproject.model.CustomerLoginResponse
 import com.example.myproject.model.CustomerRegResponse
 import com.example.myproject.model.RegistrationModel
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -18,6 +19,7 @@ class CustomerViewModel : ViewModel(){
     private val disposable = CompositeDisposable()
 
     var customerRegistrationResponse = MutableLiveData<CustomerRegResponse>()
+    var customerLoginResponse = MutableLiveData<CustomerLoginResponse>()
     var error_response = MutableLiveData<Boolean>();
     var userDeleteResponse = MutableLiveData<Boolean>();
 
@@ -30,6 +32,28 @@ class CustomerViewModel : ViewModel(){
                 override fun onSuccess(model: CustomerRegResponse) {
                     model?.let {
                         customerRegistrationResponse.value = model
+                    }
+                }
+                override fun onError(e: Throwable) {
+                    if(Constant.logCheck){
+                        Log.e("error_reqForUserReg", e.message.toString())
+                    }
+                    e.printStackTrace()
+                    error_response.value = true
+                }
+            })
+        )
+    }
+
+    fun reqForUserLogin(model: RegistrationModel) {
+
+        disposable.add(apiService.reqForLogin(model)
+            .subscribeOn(Schedulers.newThread())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeWith(object : DisposableSingleObserver<CustomerLoginResponse>() {
+                override fun onSuccess(model: CustomerLoginResponse) {
+                    model?.let {
+                        customerLoginResponse.value = model
                     }
                 }
                 override fun onError(e: Throwable) {

@@ -3,8 +3,9 @@ package com.example.myproject
 import android.app.DatePickerDialog
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
+import android.view.View
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -14,6 +15,7 @@ import com.example.examshadhin.view.viewmodel.CustomerViewModel
 import com.example.myproject.model.RegistrationModel
 import kotlinx.android.synthetic.main.activity_registration.*
 import java.util.*
+
 
 class RegistrationActivity : AppCompatActivity() {
 
@@ -69,9 +71,9 @@ class RegistrationActivity : AppCompatActivity() {
         customerViewModel.customerRegistrationResponse.observe(this) {
 
             it?.let {
-                Toast.makeText(this, "User-Created and ID : " + it.id, Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "Registration Successful from Mobile No : " + it.phoneNo, Toast.LENGTH_LONG).show()
                 if (Constant.logCheck) {
-                    Log.d(RegistrationActivity::class.java.getSimpleName(), it.id.toString())
+                   // Log.d(RegistrationActivity::class.java.getSimpleName(), it.id.toString())
                 }
             }
         }
@@ -81,8 +83,12 @@ class RegistrationActivity : AppCompatActivity() {
         btnSubmit.setOnClickListener {
             if (edtCustomerName.text.toString() == "") {
                 Toast.makeText(this, "Enter Name", Toast.LENGTH_LONG).show()
-            } else if (edtCustomerEmail.text.toString() == "") {
-                Toast.makeText(this, "Enter Email", Toast.LENGTH_LONG).show()
+            } else if (edtPin.text.toString() == "") {
+                Toast.makeText(this, "Enter Pin", Toast.LENGTH_LONG).show()
+            } else if (spType.selectedItem.toString() == "") {
+                Toast.makeText(this, "Enter User Type", Toast.LENGTH_LONG).show()
+            } else if (edtDob.text.toString() == "") {
+                Toast.makeText(this, "Enter Date of Birth", Toast.LENGTH_LONG).show()
             } else {
                 reqForUserRegistration()
             }
@@ -91,10 +97,26 @@ class RegistrationActivity : AppCompatActivity() {
 
     private fun reqForUserRegistration() {
         val model = RegistrationModel()
-        model.gender = spGender.getSelectedItem().toString()
-        model.email = edtCustomerEmail.text.toString()
         model.name = edtCustomerName.text.toString()
-        model.status = spType.getSelectedItem().toString()
+        model.accountNo = edtPhone.text.toString()
+        model.email = edtEmail.text.toString()
+        if(spGender.selectedItem.toString()=="male"){
+            model.gender  = "1"
+        }else if(spGender.selectedItem.toString()=="female"){
+            model.gender  = "2"
+        }
+        model.pin = edtPin.text.toString()
+        model.dob = edtDob.text.toString()
+        model.address = edtAddress.text.toString()
+
+        if(spType.selectedItem.toString()=="Customer"){
+            model.userType = "4"
+        }else if(spType.selectedItem.toString()=="Agent"){
+            model.userType = "3"
+        }else if(spType.selectedItem.toString()=="Distributor"){
+            model.userType = "2"
+        }
+        model.parentId = edtDistributeNo.text.toString()
         this.let { it1 -> customerViewModel.reqForUserRegistration(model) }
     }
 
@@ -114,6 +136,21 @@ class RegistrationActivity : AppCompatActivity() {
         )
         adapterForStatus.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spType.setAdapter(adapterForStatus)
+
+        spType.onItemSelectedListener =  object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+if(position==2){
+    edtDistributeNo.visibility=View.VISIBLE
+}else{
+    edtDistributeNo.visibility=View.GONE
+}
+            }
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+
+            }
+        }
+
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

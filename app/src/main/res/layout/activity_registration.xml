@@ -27,6 +27,7 @@
             android:id="@+id/edtCustomerName"
             android:singleLine="true"
             android:hint="Name"
+            android:text="shadhin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -38,14 +39,16 @@
             android:id="@+id/edtPhone"
             android:singleLine="true"
             android:hint="Phone"
+            android:text="01672708329"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
         </EditText>
 
         <EditText
-            android:id="@+id/edtCustomerEmail"
+            android:id="@+id/edtEmail"
             android:hint="Email"
+            android:text="s@gmail.com"
             android:inputType="textEmailAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -76,6 +79,7 @@
             android:id="@+id/edtPin"
             android:singleLine="true"
             android:hint="PIN"
+            android:text="1234"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -96,15 +100,18 @@
         android:id="@+id/edtAddress"
         android:singleLine="true"
         android:hint="Address"
+            android:text="merul"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
     </EditText>
  <EditText
         android:inputType="text"
+     android:visibility="gone"
         android:id="@+id/edtDistributeNo"
         android:singleLine="true"
         android:hint="Distribute No"
+        android:text="1234"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 

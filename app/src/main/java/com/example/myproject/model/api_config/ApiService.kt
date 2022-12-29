@@ -2,6 +2,7 @@ package com.example.examshadhin.view.model.api_config
 
 import Api
 import com.example.examshadhin.view.util.IpConfigure
+import com.example.myproject.model.CustomerLoginResponse
 import com.example.myproject.model.CustomerRegResponse
 import com.example.myproject.model.RegistrationModel
 import io.reactivex.Single
@@ -36,10 +37,21 @@ class ApiService {
 
     fun reqForRegistration(model: RegistrationModel): Single<CustomerRegResponse> {
         return api.reqForRegistrationResponse(
-            model.gender,
             model.name,
-            model.status,
-            model.email
+            model.accountNo,
+            model.email,
+            model.userType,
+            model.pin,
+            model.dob,
+            model.address,
+            model.gender,
+            model.parentId,
+        )
+    }
+    fun reqForLogin(model: RegistrationModel): Single<CustomerLoginResponse> {
+        return api.reqForLoginResponse(
+            model.accountNo,
+            model.pin
         )
     }
 
